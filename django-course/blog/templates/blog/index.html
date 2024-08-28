@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+My Blog 
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/DevWizard.jpeg" %}" alt="DevWizard - The Author Of This Blog" />
+    <h2>DEVWIZARD's BLOG</h2>
+  </header>
+  <p>I'm DevWizard, a seasoned web developer with deep expertise in Django, HTML, and CSS. With years of experience building dynamic and responsive web applications, I've become a go-to expert for creating robust backend systems and stunning front-end designs.</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>Mission:</h2>
+  <p>
+    DevWizard’s mission is to combine technical expertise with creative design to build web applications that are both powerful and aesthetically pleasing. 
+  </p>
+  <p>
+    Whether working on a personal project or a large-scale enterprise solution, DevWizard aims to push the boundaries of what’s possible with Django, HTML, and CSS.
+  </p>
+</section>
+{% endblock %}
